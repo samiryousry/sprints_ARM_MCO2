@@ -1,8 +1,8 @@
 #include <stdint.h>
 #include "systick.h""
-#include "led_port_registers.h""
-
-	
+#include "led_port_registers.h"
+#include "functions.h"
+	 
 int main(void)
 { 	uint32_t ui32loop =0;
 	SYSCTL_RGCGPIO_R =0x00000020U; //GPIO Port F Run Mode Clock Gating Control

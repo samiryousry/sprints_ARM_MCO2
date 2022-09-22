@@ -21,39 +21,52 @@ Target DLL:      UL2CM3.DLL V1.164.7.0
 Dialog DLL:      TCM.DLL V1.56.1.0
  
 <h2>Project:</h2>
-D:\embded_systen\WORKSPACE\sprints_ARM_MCO2\Src\mcal\inc\project 1.uvprojx
+D:\embded_systen\WORKSPACE\sa\sprints_ARM_MCO2\Src\appl\project 1.uvprojx
 Project File Date:  09/22/2022
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.18', folder: 'C:\Keil_v5\ARM\ARMCLANG\Bin'
 Rebuild target 'Target 1'
 compiling main.c...
-main.c(6): warning: // comments are not allowed in this language [-Wcomment]
+main.c(2): warning: missing terminating '"' character [-Winvalid-pp-token]
+#include "systick.h""
+                    ^
+main.c(2): warning: extra tokens at end of #include directive [-Wextra-tokens]
+main.c(2): warning: In file included from...
+./systick.h(3): warning: no newline at end of file [-Wnewline-eof]
+                #define         NVIC_ST_CURRENT_R   (*(volatile uint32_t *)0xE000E018U)
+                                                                                       ^
+main.c(3): warning: In file included from...
+./led_port_registers.h(1): warning: // comments are not allowed in this language [-Wcomment]
 #define SYSCTL_RGCGPIO_R   (*(volatile uint32_t *)0x400FE608U) //General-Purpose Input/Output Peripheral Ready
                                                                ^
-main.c(19): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
-         GPIO_PortF_DATA_R &= ~(1 << 1); //clear 2nd bit
-                           ~~ ^~~~~~~~~
-main.c(22): warning: implicit declaration of function 'One_Second_Delay' [-Wimplicit-function-declaration]
-        One_Second_Delay() ;
-        ^
-main.c(13): warning: variable 'ui32loop' set but not used [-Wunused-but-set-variable]
-{       uint32_t ui32loop =0;
-                 ^
-main.c(25): warning: expression result unused [-Wunused-value]
-        One_Second_Delay ;
-        ^~~~~~~~~~~~~~~~
-main.c(29): warning: no previous prototype for function 'One_Second_Delay' [-Wmissing-prototypes]
- One_Second_Delay(void)
+./led_port_registers.h(5): warning: no newline at end of file [-Wnewline-eof]
+        #define GPIO_PortF_DATA_R           (*(volatile uint32_t *)0x400253fcU)
+                                                                               ^
+main.c(4): warning: In file included from...
+./functions.h(9): warning: no newline at end of file [-Wnewline-eof]
+}
  ^
-main.c(29): note: declare 'static' if the function is not intended to be used outside of this translation unit
- One_Second_Delay(void)
- ^
- static 
-main.c(37): warning: non-void function does not return a value [-Wreturn-type]
+./functions.h(1): warning: no previous prototype for function 'One_Second_Delay' [-Wmissing-prototypes]
+One_Second_Delay(void)
+^
+./functions.h(1): note: declare 'static' if the function is not intended to be used outside of this translation unit
+One_Second_Delay(void)
+^
+static 
+./functions.h(9): warning: non-void function does not return a value [-Wreturn-type]
 }
 ^
-7 warnings generated.
+main.c(8): warning: // comments are not allowed in this language [-Wcomment]
+        SYSCTL_RGCGPIO_R =0x00000020U; //GPIO Port F Run Mode Clock Gating Control
+                                       ^
+main.c(13): warning: implicit conversion changes signedness: 'int' to 'unsigned int' [-Wsign-conversion]
+         GPIO_PortF_DATA_R &= ~(1 << 1); //clear 2nd bit
+                           ~~ ^~~~~~~~~
+main.c(7): warning: variable 'ui32loop' set but not used [-Wunused-but-set-variable]
+{       uint32_t ui32loop =0;
+                 ^
+11 warnings generated.
 assembling startup_TM4C123.s...
 compiling system_TM4C123.c...
 RTE/Device/TM4C123GH6PM/system_TM4C123.c(13): warning: In file included from...
@@ -195,8 +208,8 @@ RTE/Device/TM4C123GH6PM/system_TM4C123.c(19): warning: // comments are not allow
 ^
 45 warnings generated.
 linking...
-Program Size: Code=764 RO-data=636 RW-data=0 ZI-data=608  
-".\Objects\project 1.axf" - 0 Error(s), 52 Warning(s).
+Program Size: Code=768 RO-data=636 RW-data=0 ZI-data=608  
+".\Objects\project 1.axf" - 0 Error(s), 56 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -222,10 +235,10 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.6.0
 
    * Component: Keil::Device:Startup:1.0.1
-      Source file:   Device/Source/ARM/startup_TM4C123.s
-      Source file:   Device/Source/system_TM4C123.c
       Include file:  Device/Include/TM4C123/TM4C123.h
-Build Time Elapsed:  00:00:02
+      Source file:   Device/Source/system_TM4C123.c
+      Source file:   Device/Source/ARM/startup_TM4C123.s
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>
